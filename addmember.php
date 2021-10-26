@@ -4,7 +4,7 @@ $email = $_GET["email"];
 $psw = $_GET["psw"];
 $loginname = $_GET["loginname"];
 $name = $_GET["name"];
-$pass =md5($psw);
+$pass =md5($psw); //md5 hash function password
 include "conn/dbconnect.php";
 $selectid = "select UserID FROM member ORDER by UserID DESC Limit 0,1";
 $result = mysqli_query($conn,$selectid);
@@ -20,6 +20,7 @@ echo "<br>email ".$email."<br>";
 echo "loginname ".$loginname."<br>";
 echo "name " . $name . "<br>";
 echo "$pass";
-    //echo "ID" . $resultID ."<br>";
+//echo "ID" . $resultID ."<br>";
+header("location:register.php");
 
-    ?>
+?>
