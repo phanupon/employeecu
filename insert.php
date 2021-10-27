@@ -6,6 +6,18 @@
 <body>
 <?php 
 include "inc/header.php";
+session_start();
+if($_SESSION['UserID'] == "")
+{
+echo "Please Login!";
+header('Location: login.php');
+exit();
+}
+if($_SESSION['Status'] != "ADMIN")
+{
+    echo "This page for Admin only!";
+    exit();
+}	
 include "conn/dbconnect.php";
 $sql = "select employeeID FROM employee ORDER by employeeID DESC Limit 0,1";
 //$result = $conn->query($sql);

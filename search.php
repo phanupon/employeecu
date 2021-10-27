@@ -1,5 +1,17 @@
 <?php 
 include "inc/header.php";
+session_start();
+if($_SESSION['UserID'] == "")
+{
+echo "Please Login!";
+header('Location: login.php');
+exit();
+}
+if($_SESSION['Status'] != "ADMIN")
+{
+    echo "This page for Admin only!";
+    exit();
+}	
 if(empty($_GET['search_by'])){ ?>
 <h2>Search Employee </h2>
     <form method="get" action="<?php echo($_SERVER["PHP_SELF"]); ?>">
