@@ -16,6 +16,7 @@ $sql = "delete from employee where employeeID = '$id' ";
 $result = mysqli_query($conn, $sql);
 if($result){
 echo "Delete data success <a href=showdata.php>Showdata</a>";
+header('Location: showdata.php');
 }else{
     echo "Can't delete data <a href=showdata.php>Showdata</a>";
 } 

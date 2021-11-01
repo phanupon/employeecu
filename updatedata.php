@@ -12,7 +12,7 @@ $result = mysqli_query($conn, $query);
 
 if($result){
  echo " Update data success <a href=showdata.php>Show data</a>";
- 
+ header('Location: showdata.php');
 }else{
  echo " can't Update data";
 }

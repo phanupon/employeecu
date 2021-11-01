@@ -54,7 +54,7 @@ while($dbarr2 = mysqli_fetch_array($result2))
     echo "<td><img size style=width:50px;height:50px src=uploads/".$dbarr2[5]." "."alt="."".$dbarr2[1].""."></td>";
     echo "<td>$dbarr2[0]</td>";
     echo "<td>$dbarr2[1]</td>";
-    echo "<td>$dbarr2[2]</td>";
+    echo "<td>".number_format($dbarr2[2],2)."</td>";
     echo "<td>$dbarr2[3]</td>";
     echo "<td>$dbarr2[4]</td>";
     echo "<td><a href='update.php?id=$dbarr2[employeeID]'>edit</a> <a href='delete.php?id=$dbarr2[employeeID]'>delete</a></td>";
