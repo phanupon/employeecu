@@ -15,9 +15,11 @@ if ($conn->connect_error) {
 $sql = "delete from employee where employeeID = '$id' ";
 $result = mysqli_query($conn, $sql);
 if($result){
+mysqli_close($conn);  
 echo "Delete data success <a href=showdata.php>Showdata</a>";
 header('Location: showdata.php');
 }else{
+mysqli_close($conn);
     echo "Can't delete data <a href=showdata.php>Showdata</a>";
 } 
 ?>
