@@ -1,4 +1,17 @@
 <?php
+session_start();
+if($_SESSION['UserID'] == "")
+{
+echo "Please Login!";
+header('Location: login.php');
+exit();
+}
+if($_SESSION['Status'] != "ADMIN")
+{
+    echo "This page for Admin only!";
+    exit();
+}	
+
 //Connect to MySQL
 //mysql --host=34.216.108.12 --port=57103
 $id = $_GET["id"];
@@ -8,6 +21,7 @@ $salary = $_GET["salary"];
 $departmentid = $_GET["departmentID"];
 
 // connectdata base
+
 
 $link = mysqli_connect('localhost','root','','employee');
 $query = "use employee";
